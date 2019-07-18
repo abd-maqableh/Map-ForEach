@@ -1,6 +1,7 @@
 /*
 * Exercise 1: 
-* Write a function called doubleValues which accepts an array and returns a new array with all the values in the array passed to the function doubled
+* Write a function called doubleValues which accepts an array and returns
+ a new array with all the values in the array passed to the function doubled
 *
 * Test Case:
 *    Test Case 1: doubleValues([1,2,3]) 
@@ -12,23 +13,19 @@
 *
 *
 */
-
-var arr = [1,2,3]
-
-
-function doubleValues(array){
-
-  var Result= array.map(index=>index+index)
-  return Result;
-
-
-
-
+var arr1 =[5,1,2,3,10];
+function doubleValues(arr1){
+   //Your Code Here
+   var newArray =[];
+   arr1.forEach(index=>newArray.push(index*2));
+   
+   return newArray;
 }
-
+console.log(doubleValues(arr1));
 /*
 * Exercise 2:
-* Write a function called onlyEvenValues which accepts an array and returns a new array with only the even values in the array passed to the function
+* Write a function called onlyEvenValues which accepts an array and returns
+ a new array with only the even values in the array passed to the function
 *
 * Test Cases:
 *   onlyEvenValues([1,2,3]) 
@@ -38,19 +35,23 @@ function doubleValues(array){
 *  Test Case 1:  [2]
 *  Test Case 2: [2,10]
 */
-
-function onlyEvenValues(arr){
+var arr2=[5,1,2,3,10];
+function onlyEvenValues(arr2){
     //Your Code Here
-    var Result = arr.map(index=> if (index%2===0) {
-      
-      
-    })
+    var newArray=[];
+    arr2.forEach(index=>{if(index%2===0){
+       return newArray.push(index);
+    }
     
+  });
+   
+    return newArray;
 }
-
+console.log(onlyEvenValues(arr2));
 /*
 * Exercise 3:
-* Write a function called showFirstAndLast which accepts an array of strings and returns a new array with only the first and last character of each string.
+* Write a function called showFirstAndLast which accepts
+ an array of strings and returns a new array with only the first and last character of each string.
 *
 * Test Case:
 *   Test Case 1: showFirstAndLast(['colt','matt', 'tim', 'udemy'])  
@@ -61,13 +62,19 @@ function onlyEvenValues(arr){
 * Test Case 2: ['hi', 'ge', 'se']
 *
 */
-function showFirstAndLast(arr){
+var arr3=['colt','matt', 'tim', 'udemy'];
+function showFirstAndLast(arr3){
    //Your Code Here
-}
+   var newArray=[];
+   arr3.forEach(index=> newArray.push(index[0]+index[index.length-1]));
 
+ return newArray;
+}
+console.log(showFirstAndLast(arr3));
 /*
 * Exercise 4:
-* Write a function called addKeyAndValue which accepts an array of objects, a key, and a value and returns the array passed 
+* Write a function called addKeyAndValue which accepts an array of objects,
+ a key, and a value and returns the array passed 
 * to the function with the new key and value added for each object 
 * 
 * Test Cases:
@@ -77,14 +84,24 @@ function showFirstAndLast(arr){
 *   [{name: 'Elie', title:'instructor'}, {name: 'Tim', title:'instructor'}, {name: 'Matt', title:'instructor'}, {name: 'Colt', title:'instructor'}]
 *
 */
-function addKeyAndValue(arr,key,value){
+var arr4=[{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}];
+function addKeyAndValue(arr4,key,value){
     //Your Code Here
+    var newArray=[];
+    arr4.forEach(index => {
+      index[key]= value;
+      newArray.push(index);
+      
+    });
+    return newArray;
 }
-
+console.log(addKeyAndValue(arr4,'title', 'instructor'));
 /*
 * Exercise 5:
-* Write a function called vowelCount which accepts a string and returns an object with the keys as the vowel and the 
-* values as the number of times the vowel appears in the string. This function should be case insensitive so a lowercase letter and uppercase letter should count
+* Write a function called vowelCount which accepts a string and returns an object
+ with the keys as the vowel and the 
+* values as the number of times the vowel appears in the string. 
+This function should be case insensitive so a lowercase letter and uppercase letter should count
 * 
 * Test Cases 1: vowelCount('Elie') // {e:2,i:1};
 * Test Cases 2:  vowelCount('Tim') // {i:1};
@@ -101,7 +118,32 @@ function addKeyAndValue(arr,key,value){
 * Test Cases 5: {i: 1, a: 4, e: 3, o: 3, u: 1};
 *
 */
+var stringObject='I Am awesome and so are you';
+function vowelCount(stringObject){
+ 
+  var arrayN=[];
+  var stringStr;
+  stringStr=stringObject.toLowerCase();
+arrayN =stringStr.split("");
+ var newObject ={};
+ var vowels=["a","e","i","o","u"];
+  var counter;
 
-function vowelCount(str){
-  //Your Code Here
+vowels.forEach(ind=>{ 
+   counter=0; 
+arrayN.forEach(index=>{
+  
+if (index === ind) {
+  
+  counter++;
+  newObject[ind]=counter;
+  
 }
+})
+
+}
+
+);
+ return newObject;
+}
+console.log(vowelCount(stringObject));
